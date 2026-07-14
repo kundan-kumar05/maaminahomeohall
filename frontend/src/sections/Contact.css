@@ -1,0 +1,133 @@
+.contact-section {
+  background: var(--white);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+/* Info */
+.contact-info-col {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contact-detail-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 18px 20px;
+  background: var(--bg);
+  border-radius: 16px;
+  border: 1px solid transparent;
+  transition: var(--transition);
+}
+
+.contact-detail-card:hover {
+  background: white;
+  border-color: color-mix(in srgb, var(--c-color) 20%, transparent);
+  box-shadow: var(--card-shadow);
+  transform: translateX(4px);
+}
+
+.c-icon {
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--c-color) 12%, transparent);
+  color: var(--c-color);
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: var(--transition);
+}
+
+.contact-detail-card:hover .c-icon {
+  background: var(--c-color);
+  color: white;
+}
+
+.c-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--text-light);
+  margin-bottom: 4px;
+}
+
+.c-value {
+  font-size: 0.9rem;
+  color: var(--text-dark);
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.c-value.link {
+  color: var(--c-color);
+  font-weight: 600;
+}
+
+.c-value.link:hover { text-decoration: underline; }
+
+/* CTA Card */
+.contact-cta-card {
+  background: linear-gradient(135deg, #1a3d2b, #2E8B57);
+  border-radius: 20px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0 8px 32px rgba(46,139,87,0.3);
+}
+
+.cta-card-content {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.cta-card-icon {
+  font-size: 2rem;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.cta-card-content h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 4px;
+}
+
+.cta-card-content p {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.4;
+}
+
+/* Map */
+.map-wrapper {
+  border-radius: 20px;
+  overflow: hidden;
+  height: 480px;
+  box-shadow: var(--card-shadow);
+  border: 1px solid var(--bg-dark);
+}
+
+@media (max-width: 900px) {
+  .contact-grid { grid-template-columns: 1fr; }
+  .map-wrapper { height: 300px; }
+}

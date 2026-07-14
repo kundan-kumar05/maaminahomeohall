@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book WhatsApp Appointment | Maa Mina Homeo Hall</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ─── Design Tokens & CSS Variables ───────────────────────────── */
+    :root {
+      --primary: #2E8B57;
+      --primary-hover: #1e6b42;
+      --primary-light: rgba(46, 139, 87, 0.1);
+      --whatsapp: #25D366;
+      --whatsapp-hover: #20ba59;
+      --whatsapp-light: rgba(37, 211, 102, 0.1);
+      
+      --bg: #F8F9FA;
+      --card-bg: #ffffff;
+      --text-dark: #1A2332;
+      --text-mid: #445566;
+      --text-light: #7A8FA6;
+      --border: #E2E8F0;
+      
+      --danger: #EF4444;
+      --danger-light: rgba(239, 68, 68, 0.08);
+      --success: #10B981;
+      --success-light: rgba(16, 185, 129, 0.08);
+      
+      --shadow: 0 10px 30px rgba(46, 139, 87, 0.08);
+      --shadow-hover: 0 20px 40px rgba(46, 139, 87, 0.15);
+      --radius: 16px;
+      --radius-sm: 8px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* ─── Reset & Base Styles ──────────────────────────────────────── */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #f4f7f6 0%, #eef3f1 100%);
+      color: var(--text-dark);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+      margin-top: 20px;
+    }
+
+    .logo-container {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+      text-decoration: none;
+    }
+
+    .logo-icon {
+      width: 42px;
+      height: 42px;
+      background: var(--primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 24px;
+      font-weight: bold;
+      box-shadow: 0 4px 12px rgba(46, 139, 87, 0.2);
+    }
+
+    .logo-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: -0.5px;
+    }
+
+    .page-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      color: var(--text-dark);
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+
+    .page-subtitle {
+      color: var(--text-mid);
+      font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* ─── Layout & Container ───────────────────────────────────────── */
+    .main-container {
+      max-width: 1000px;
+      width: 100%;
+      margin: 0 auto 60px auto;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 30px;
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      border: 1px solid rgba(46, 139, 87, 0.05);
+    }
+
+    @media (max-width: 820px) {
+      .main-container {
+        grid-template-columns: 1fr;
+      }
+      body {
+        padding: 10px;
+      }
+    }
+
+    /* ─── Left Side: Form Section ──────────────────────────────────── */
+    .form-section {
+      padding: 40px;
+    }
+
+    @media (max-width: 500px) {
+      .form-section {
+        padding: 24px 16px;
+      }
+    }
+
+    .section-heading {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 2px solid var(--primary-light);
+      padding-bottom: 12px;
+    }
+
+    .section-heading svg {
+      color: var(--primary);
+      width: 24px;
+      height: 24px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    @media (max-width: 600px) {
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .form-group.full-width {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-dark);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    label .required {
+      color: var(--danger);
+    }
+
+    .input-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .input-wrapper svg {
+      position: absolute;
+      left: 14px;
+      color: var(--text-light);
+      width: 18px;
+      height: 18px;
+      transition: var(--transition);
+      pointer-events: none;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 12px 14px 12px 42px;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-sm);
+      font-family: inherit;
+      font-size: 15px;
+      color: var(--text-dark);
+      background-color: #FAFAFA;
+      transition: var(--transition);
+      outline: none;
+    }
+
+    .form-control:focus {
+      border-color: var(--primary);
+      background-color: #ffffff;
+      box-shadow: 0 0 0 4px var(--primary-light);
+    }
+
+    .form-control:focus + svg {
+      color: var(--primary);
+    }
+
+    /* Custom select styling */
+    select.form-control {
+      appearance: none;
+      cursor: pointer;
+    }
+
+    .select-arrow {
+      position: absolute;
+      right: 14px;
+      pointer-events: none;
+      color: var(--text-light);
+      width: 16px;
+      height: 16px;
+    }
+
+    textarea.form-control {
+      min-height: 100px;
+      resize: vertical;
+      padding-left: 14px; /* Textareas don't use absolute icons on left */
+    }
+
+    /* Form Validation State Styles */
+    .form-group.has-error .form-control {
+      border-color: var(--danger);
+      background-color: var(--danger-light);
+    }
+
+    .form-group.has-error .form-control:focus {
+      box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.15);
+    }
+
+    .form-group.has-error svg {
+      color: var(--danger);
+    }
+
+    .error-text {
+      font-size: 12px;
+      color: var(--danger);
+      font-weight: 500;
+      display: none;
+      align-items: center;
+      gap: 4px;
+      margin-top: 2px;
+    }
+
+    .form-group.has-error .error-text {
+      display: flex;
+    }
+
+    /* Success / Toast Notification */
+    .form-status {
+      grid-column: 1 / -1;
+      padding: 14px 16px;
+      border-radius: var(--radius-sm);
+      font-size: 14px;
+      font-weight: 500;
+      display: none;
+      align-items: center;
+      gap: 10px;
+      animation: fadeInUp 0.3s ease;
+    }
+
+    .form-status.status-success {
+      display: flex;
+      background-color: var(--success-light);
+      border: 1px solid var(--success);
+      color: var(--success);
+    }
+
+    .form-status.status-error {
+      display: flex;
+      background-color: var(--danger-light);
+      border: 1px solid var(--danger);
+      color: var(--danger);
+    }
+
+    /* Button Styling */
+    .btn-submit {
+      width: 100%;
+      padding: 15px 24px;
+      background-color: var(--whatsapp);
+      color: white;
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 700;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
+      transition: var(--transition);
+      margin-top: 10px;
+    }
+
+    .btn-submit:hover {
+      background-color: var(--whatsapp-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+    }
+
+    .btn-submit:active {
+      transform: translateY(0);
+    }
+
+    .btn-submit svg {
+      width: 22px;
+      height: 22px;
+      fill: currentColor;
+    }
+
+    /* ─── Right Side: Information Panel ────────────────────────────── */
+    .info-section {
+      background-color: #FAFBFB;
+      border-left: 1px solid var(--border);
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    @media (max-width: 820px) {
+      .info-section {
+        border-left: none;
+        border-top: 1px solid var(--border);
+        padding: 30px;
+      }
+    }
+
+    .info-card {
+      margin-bottom: 30px;
+    }
+
+    .info-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .info-title svg {
+      color: var(--primary);
+      width: 22px;
+      height: 22px;
+    }
+
+    .info-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .info-item {
+      display: flex;
+      gap: 14px;
+      font-size: 14px;
+      color: var(--text-mid);
+    }
+
+    .info-item-icon {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      background-color: var(--primary-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+    }
+
+    .info-item-icon svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .info-item-text strong {
+      display: block;
+      color: var(--text-dark);
+      margin-bottom: 2px;
+    }
+
+    /* Doctor details display */
+    .doc-mini-card {
+      background-color: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 16px;
+      margin-top: 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .doc-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--primary-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      font-size: 20px;
+      font-weight: bold;
+      border: 2px solid white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .doc-info h4 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+
+    .doc-info p {
+      font-size: 12px;
+      color: var(--text-light);
+    }
+
+    /* Footer disclaimer */
+    .disclaimer-box {
+      font-size: 12px;
+      color: var(--text-light);
+      background-color: rgba(0, 0, 0, 0.02);
+      padding: 14px;
+      border-radius: var(--radius-sm);
+      border-left: 3px solid var(--text-light);
+      margin-top: auto;
+    }
+
+    /* ─── Floating WhatsApp Button ──────────────────────────────────── */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .whatsapp-tooltip {
+      background-color: var(--text-dark);
+      color: white;
+      padding: 8px 16px;
+      border-radius: 50px;
+      font-size: 13px;
+      font-weight: 600;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+      white-space: nowrap;
+      opacity: 0;
+      transform: translateX(10px);
+      transition: var(--transition);
+      pointer-events: none;
+    }
+
+    .whatsapp-float:hover .whatsapp-tooltip {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .whatsapp-btn {
+      width: 60px;
+      height: 60px;
+      background-color: var(--whatsapp);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+      cursor: pointer;
+      position: relative;
+      transition: var(--transition);
+    }
+
+    .whatsapp-btn::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background-color: var(--whatsapp);
+      opacity: 0.7;
+      z-index: -1;
+      animation: pulse-ring 2s infinite;
+    }
+
+    .whatsapp-btn:hover {
+      background-color: var(--whatsapp-hover);
+      transform: scale(1.08);
+      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+    }
+
+    .whatsapp-btn svg {
+      width: 32px;
+      height: 32px;
+      fill: currentColor;
+    }
+
+    /* ─── Keyframe Animations ───────────────────────────────────────── */
+    @keyframes pulse-ring {
+      0% {
+        transform: scale(0.95);
+        opacity: 0.5;
+      }
+      50% {
+        opacity: 0.3;
+      }
+      100% {
+        transform: scale(1.5);
+        opacity: 0;
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header>
+    <a href="#" class="logo-container">
+      <div class="logo-icon">🌿</div>
+      <div class="logo-text">Maa Mina Homeo Hall</div>
+    </a>
+    <h1 class="page-title">WhatsApp Booking</h1>
+    <p class="page-subtitle">Schedule your consultation instantly by filling the form below and sending it to our official WhatsApp care line.</p>
+  </header>
+
+  <!-- Main Content Card -->
+  <main class="main-container">
+    
+    <!-- Form Area -->
+    <section class="form-section">
+      <h2 class="section-heading">
+        <!-- Calendar Medical Check Icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z" />
+        </svg>
+        Patient Details
+      </h2>
+      
+      <form id="appointmentForm" class="form-grid" novalidate>
+        
+        <!-- Form Status Message -->
+        <div id="formStatus" class="form-status">
+          <span id="statusIcon"></span>
+          <span id="statusMessage"></span>
+        </div>
+        
+        <!-- Full Name -->
+        <div class="form-group full-width" id="grp-fullName">
+          <label for="fullName">Full Name <span class="required">*</span></label>
+          <div class="input-wrapper">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+            </svg>
+            <input type="text" id="fullName" class="form-control" placeholder="Enter patient's full name">
+          </div>
+          <span class="error-text">Please enter a valid full name.</span>
+        </div>
+
+        <!-- Age -->
+        <div class="form-group" id="grp-age">
+          <label for="age">Age <span class="required">*</span></label>
+          <div class="input-wrapper">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z" />
+            </svg>
+            <input type="text" id="age" class="form-control" placeholder="Age (e.g. 28)" inputmode="numeric">
+          </div>
+          <span class="error-text">Please enter a valid age (1-120).</span>
+        </div>
+
+        <!-- Gender -->
+        <div class="form-group" id="grp-gender">
+          <label for="gender">Gender <span class="required">*</span></label>
+          <div class="input-wrapper">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.97 5.97 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />
+            </svg>
+            <select id="gender" class="form-control">
+              <option value="" disabled selected>Select Gender</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Other">Other</option>
+            </select>
+            <!-- Down arrow icon for styling -->
+            <svg class="select-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+            </svg>
+          </div>
+          <span class="error-text">Please select a gender.</span>
+        </div>
+
+        <!-- Mobile Number -->
+        <div class="form-group" id="grp-phone">
+          <label for="phone">Mobile Number <span class="required">*</span></label>
+          <div class="input-wrapper">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 0 0 6 3.75v16.5a2.25 2.25 0 0 0 2.25 2.25h7.5A2.25 2.25 0 0 0 18 20.25V3.75a2.25 2.25 0 0 0-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
+            </svg>
+            <input type="tel" id="phone" class="form-control" placeholder="Digits only (e.g. 9876543210)" inputmode="tel">
+          </div>
+          <span class="error-text">Please enter a valid mobile number (digits only).</span>
+        </div>
+
+        <!-- City -->
+        <div class="form-group" id="grp-city">
+          <label for="city">City</label>
+          <div class="input-wrapper">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25s-7.5-4.108-7.5-11.25a7.5 7.5 0 1 1 15 0Z" />
+            </svg>
+            <input type="text" id="city" class="form-control" placeholder="E.g. Darbhanga">
+          </div>
+        </div>
+
+        <!-- Symptoms -->
+        <div class="form-group full-width" id="grp-symptoms">
+          <label for="symptoms">Symptoms / Health Problem <span class="required">*</span></label>
+          <div class="input-wrapper">
+            <textarea id="symptoms" class="form-control" placeholder="Describe symptoms (e.g. chronic skin allergy, joint pain, migraine, acid reflux...)"></textarea>
+          </div>
+          <span class="error-text">Please specify your symptoms or health concern.</span>
+        </div>
+
+        <!-- Preferred Date -->
+        <div class="form-group full-width" id="grp-date">
+          <label for="date">Preferred Appointment Date</label>
+          <div class="input-wrapper">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z" />
+            </svg>
+            <input type="date" id="date" class="form-control">
+          </div>
+        </div>
+
+        <!-- Additional Notes -->
+        <div class="form-group full-width" id="grp-notes">
+          <label for="notes">Additional Notes / Medical History <span class="text-light">(Optional)</span></label>
+          <div class="input-wrapper">
+            <textarea id="notes" class="form-control" placeholder="E.g. Past treatments, allergies, current medications..."></textarea>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="form-group full-width">
+          <button type="submit" class="btn-submit">
+            <!-- WhatsApp SVG Icon -->
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.965C16.57 1.977 14.1 1.933 12.006 1.933c-5.437 0-9.863 4.371-9.868 9.802-.001 1.77.463 3.5 1.34 5.03l-.997 3.641 3.738-.97-.162-.09zM15.842 13.06c-.27-.135-1.597-.788-1.846-.878-.249-.09-.43-.135-.61.135-.18.27-.697.878-.855 1.058-.158.18-.316.203-.586.068-.27-.135-1.14-.42-2.172-1.34-.803-.717-1.345-1.603-1.503-1.873-.158-.27-.017-.417.118-.552.122-.121.27-.316.406-.473.136-.158.18-.27.27-.45.09-.18.045-.338-.022-.473-.068-.135-.61-1.467-.835-2.008-.22-.527-.461-.455-.63-.464-.166-.008-.356-.01-.546-.01-.19 0-.5.07-.76.36-.26.29-1.002.979-1.002 2.387s1.024 2.771 1.168 2.964c.144.192 2.016 3.078 4.885 4.318.682.295 1.214.471 1.629.603.686.218 1.311.187 1.805.114.55-.082 1.597-.653 1.822-1.283.226-.63.226-1.171.158-1.283-.068-.112-.249-.203-.52-.338z"/>
+            </svg>
+            Book Appointment on WhatsApp
+          </button>
+        </div>
+
+      </form>
+    </section>
+
+    <!-- Info/Contact Sidebar -->
+    <section class="info-section">
+      <div>
+        <div class="info-card">
+          <h3 class="info-title">
+            <!-- Clock Icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+            </svg>
+            Clinic Hours
+          </h3>
+          <ul class="info-list">
+            <li class="info-item">
+              <div class="info-item-icon">⏰</div>
+              <div class="info-item-text">
+                <strong>Monday - Saturday</strong>
+                09:00 AM - 01:00 PM<br>04:00 PM - 08:00 PM
+              </div>
+            </li>
+            <li class="info-item">
+              <div class="info-item-icon">⏰</div>
+              <div class="info-item-text">
+                <strong>Sunday</strong>
+                09:00 AM - 01:00 PM (Closed Evening)
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="info-card">
+          <h3 class="info-title">
+            <!-- Map Pin Icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25s-7.5-4.108-7.5-11.25a7.5 7.5 0 1 1 15 0Z" />
+            </svg>
+            Clinic Location
+          </h3>
+          <ul class="info-list">
+            <li class="info-item">
+              <div class="info-item-icon">📍</div>
+              <div class="info-item-text">
+                <strong>Maa Mina Homeo Hall</strong>
+                Kathalbari, Near Tower Chowk,<br>Darbhanga, Bihar - 846004
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="info-card">
+          <h3 class="info-title">
+            <!-- User Group Icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.97 5.97 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />
+            </svg>
+            Senior Consultations
+          </h3>
+          
+          <div class="doc-mini-card">
+            <div class="doc-avatar">BK</div>
+            <div class="doc-info">
+              <h4>Dr. Birju Kumar</h4>
+              <p>BHMS | Paralysis, Skin, Arthritis</p>
+            </div>
+          </div>
+          
+          <div class="doc-mini-card">
+            <div class="doc-avatar" style="background-color: rgba(79,195,247,0.1); color: var(--secondary-dark, #0288d1)">RK</div>
+            <div class="doc-info">
+              <h4>Dr. Radha Kumari</h4>
+              <p>BHMS | Infant Diseases, Infertility</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Disclaimer info -->
+      <div class="disclaimer-box">
+        💡 <strong>Note:</strong> Homeopathic treatments work best with a complete analysis. Our doctors will review details sent over WhatsApp and coordinate a precise time slot.
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/919135363590?text=Hello!%20I'd%20like%20to%20inquire%20about%20booking%20an%20appointment%20at%20Maa%20Mina%20Homeo%20Hall." target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
+    <div class="whatsapp-tooltip">Chat with us on WhatsApp</div>
+    <div class="whatsapp-btn">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.965C16.57 1.977 14.1 1.933 12.006 1.933c-5.437 0-9.863 4.371-9.868 9.802-.001 1.77.463 3.5 1.34 5.03l-.997 3.641 3.738-.97-.162-.09zM15.842 13.06c-.27-.135-1.597-.788-1.846-.878-.249-.09-.43-.135-.61.135-.18.27-.697.878-.855 1.058-.158.18-.316.203-.586.068-.27-.135-1.14-.42-2.172-1.34-.803-.717-1.345-1.603-1.503-1.873-.158-.27-.017-.417.118-.552.122-.121.27-.316.406-.473.136-.158.18-.27.27-.45.09-.18.045-.338-.022-.473-.068-.135-.61-1.467-.835-2.008-.22-.527-.461-.455-.63-.464-.166-.008-.356-.01-.546-.01-.19 0-.5.07-.76.36-.26.29-1.002.979-1.002 2.387s1.024 2.771 1.168 2.964c.144.192 2.016 3.078 4.885 4.318.682.295 1.214.471 1.629.603.686.218 1.311.187 1.805.114.55-.082 1.597-.653 1.822-1.283.226-.63.226-1.171.158-1.283-.068-.112-.249-.203-.52-.338z"/>
+      </svg>
+    </div>
+  </a>
+
+  <!-- ─── Form Handling & Formatting Script ────────────────────────── -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.getElementById('appointmentForm');
+      const formStatus = document.getElementById('formStatus');
+      const statusIcon = document.getElementById('statusIcon');
+      const statusMessage = document.getElementById('statusMessage');
+
+      // WhatsApp Clinic Info
+      const WHATSAPP_NUMBER = '919135363590';
+
+      // Validation logic config
+      const fieldsConfig = {
+        fullName: {
+          required: true,
+          validate: (val) => val.trim().length >= 2,
+          errorMsg: 'Full Name must be at least 2 characters.'
+        },
+        age: {
+          required: true,
+          validate: (val) => {
+            const ageNum = Number(val.trim());
+            return !isNaN(ageNum) && ageNum > 0 && ageNum <= 120 && Number.isInteger(ageNum);
+          },
+          errorMsg: 'Please enter a valid age (1-120).'
+        },
+        gender: {
+          required: true,
+          validate: (val) => val !== '',
+          errorMsg: 'Please select a gender.'
+        },
+        phone: {
+          required: true,
+          validate: (val) => /^\d+$/.test(val.trim()) && val.trim().length >= 10 && val.trim().length <= 15,
+          errorMsg: 'Mobile number must contain digits only (10 to 15 digits).'
+        },
+        symptoms: {
+          required: true,
+          validate: (val) => val.trim().length >= 5,
+          errorMsg: 'Please describe symptoms in at least 5 characters.'
+        }
+      };
+
+      // Form validation checker
+      const validateField = (fieldId) => {
+        const input = document.getElementById(fieldId);
+        const config = fieldsConfig[fieldId];
+        const groupEl = document.getElementById(`grp-${fieldId}`);
+        if (!config || !groupEl) return true;
+
+        const val = input.value;
+        let isValid = true;
+
+        if (config.required && val.trim() === '') {
+          isValid = false;
+        } else if (val.trim() !== '') {
+          isValid = config.validate(val);
+        }
+
+        if (!isValid) {
+          groupEl.classList.add('has-error');
+          const errTextEl = groupEl.querySelector('.error-text');
+          if (errTextEl) errTextEl.innerText = config.errorMsg;
+        } else {
+          groupEl.classList.remove('has-error');
+        }
+
+        return isValid;
+      };
+
+      // Event listeners for blur/change validation
+      Object.keys(fieldsConfig).forEach(fieldId => {
+        const input = document.getElementById(fieldId);
+        if (input) {
+          const eventType = input.tagName === 'SELECT' ? 'change' : 'blur';
+          input.addEventListener(eventType, () => {
+            validateField(fieldId);
+          });
+          // Clear error on input typing
+          input.addEventListener('input', () => {
+            const groupEl = document.getElementById(`grp-${fieldId}`);
+            if (groupEl) groupEl.classList.remove('has-error');
+          });
+        }
+      });
+
+      // Submit Form
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        let isFormValid = true;
+        Object.keys(fieldsConfig).forEach(fieldId => {
+          const isValid = validateField(fieldId);
+          if (!isValid) {
+            isFormValid = false;
+          }
+        });
+
+        if (!isFormValid) {
+          showStatus('error', 'Please correct the errors in the form before booking.');
+          return;
+        }
+
+        // Form inputs
+        const fullName = document.getElementById('fullName').value.trim();
+        const age = document.getElementById('age').value.trim();
+        const gender = document.getElementById('gender').value;
+        const phone = document.getElementById('phone').value.trim();
+        const city = document.getElementById('city').value.trim() || 'Not Specified';
+        const symptoms = document.getElementById('symptoms').value.trim();
+        const rawDate = document.getElementById('date').value;
+        const notes = document.getElementById('notes').value.trim() || 'None';
+
+        // Format Date nicely (e.g. DD-MM-YYYY)
+        let formattedDate = 'Not Specified';
+        if (rawDate) {
+          const dateObj = new Date(rawDate);
+          if (!isNaN(dateObj.getTime())) {
+            const day = String(dateObj.getDate()).padStart(2, '0');
+            const month = String(dateObj.getMonth() + 1).padStart(2, '0');
+            const year = dateObj.getFullYear();
+            formattedDate = `${day}-${month}-${year}`;
+          }
+        }
+
+        // WhatsApp message template matching requirements exactly
+        const message = `🏥 New Appointment Request
+
+Patient Name: ${fullName}
+Age: ${age}
+Gender: ${gender}
+Mobile Number: ${phone}
+City: ${city}
+Symptoms: ${symptoms}
+Preferred Appointment Date: ${formattedDate}
+Additional Notes: ${notes}
+
+Please contact me regarding an appointment.`;
+
+        // Success state
+        showStatus('success', 'Form validated! Opening WhatsApp to send your request...');
+
+        // Delay redirect slightly so user sees success message
+        setTimeout(() => {
+          const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+          window.open(whatsappUrl, '_blank');
+        }, 1500);
+      });
+
+      // Show toast/status helper
+      function showStatus(type, msg) {
+        formStatus.className = 'form-status';
+        formStatus.classList.add(type === 'success' ? 'status-success' : 'status-error');
+        
+        if (type === 'success') {
+          statusIcon.innerHTML = `✓`;
+        } else {
+          statusIcon.innerHTML = `✗`;
+        }
+        
+        statusMessage.innerText = msg;
+        formStatus.style.display = 'flex';
+        
+        // Scroll to status
+        formStatus.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    });
+  </script>
+</body>
+</html>

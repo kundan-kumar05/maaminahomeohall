@@ -1,0 +1,341 @@
+/* ─── WhatsApp Booking Section CSS ────────────────────────────── */
+
+.whatsapp-section {
+  background: linear-gradient(180deg, var(--bg) 0%, var(--bg-dark) 100%);
+  position: relative;
+}
+
+.whatsapp-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 40px;
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--card-shadow);
+  border: 1px solid rgba(46, 139, 87, 0.06);
+  overflow: hidden;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+@media (max-width: 991px) {
+  .whatsapp-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
+
+/* Left Form Area */
+.whatsapp-card-form {
+  padding: 50px;
+}
+
+@media (max-width: 576px) {
+  .whatsapp-card-form {
+    padding: 30px 20px;
+  }
+}
+
+.card-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 2px solid var(--primary-light);
+  padding-bottom: 12px;
+}
+
+.heading-icon {
+  color: var(--primary);
+}
+
+.react-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+@media (max-width: 576px) {
+  .react-form-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+.react-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.react-form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.react-form-group label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.react-form-group label .required {
+  color: var(--danger);
+}
+
+.react-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.react-input-wrapper .input-icon {
+  position: absolute;
+  left: 16px;
+  color: var(--text-light);
+  font-size: 1.1rem;
+  pointer-events: none;
+  transition: var(--transition);
+}
+
+.react-form-group input,
+.react-form-group select,
+.react-form-group textarea {
+  width: 100%;
+  padding: 14px 16px 14px 46px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  background-color: #FAFAFA;
+  transition: var(--transition);
+  outline: none;
+}
+
+.react-form-group select {
+  cursor: pointer;
+  appearance: none;
+}
+
+.react-form-group textarea {
+  padding-left: 16px;
+  min-height: 120px;
+  resize: vertical;
+}
+
+.react-form-group input:focus,
+.react-form-group select:focus,
+.react-form-group textarea:focus {
+  border-color: var(--primary);
+  background-color: var(--white);
+  box-shadow: 0 0 0 4px var(--primary-light);
+}
+
+.react-form-group input:focus + .input-icon,
+.react-form-group select:focus + .input-icon {
+  color: var(--primary);
+}
+
+/* Error States */
+.react-form-group.has-error input,
+.react-form-group.has-error select,
+.react-form-group.has-error textarea {
+  border-color: var(--danger);
+  background-color: var(--danger-light);
+}
+
+.react-form-group.has-error input:focus,
+.react-form-group.has-error select:focus,
+.react-form-group.has-error textarea:focus {
+  box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.15);
+}
+
+.react-form-group.has-error .input-icon {
+  color: var(--danger);
+}
+
+.react-error-text {
+  font-size: 0.8rem;
+  color: var(--danger);
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+/* Button Submit Styling */
+.react-btn-submit {
+  width: 100%;
+  padding: 16px 28px;
+  background-color: #25D366;
+  color: var(--white);
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
+  transition: var(--transition);
+  margin-top: 10px;
+}
+
+.react-btn-submit:hover {
+  background-color: #20ba59;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.45);
+}
+
+.react-btn-submit:active {
+  transform: translateY(0);
+}
+
+.react-btn-submit .btn-icon {
+  font-size: 1.3rem;
+}
+
+/* Success Alert */
+.react-status-success {
+  display: flex;
+  gap: 16px;
+  background-color: var(--success-light);
+  border: 1px solid var(--success);
+  color: var(--success);
+  padding: 16px;
+  border-radius: var(--radius-sm);
+  margin-bottom: 30px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  animation: fadeInUp 0.4s ease;
+}
+
+.react-status-success .status-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.react-status-success strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* Right Info Panel */
+.whatsapp-info-panel {
+  background-color: #FAFBFB;
+  border-left: 1px solid var(--border);
+  padding: 50px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+@media (max-width: 991px) {
+  .whatsapp-info-panel {
+    border-left: none;
+    border-top: 1px solid var(--border);
+    padding: 40px;
+  }
+}
+
+.info-card-block {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.info-block-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.info-title-icon {
+  color: var(--primary);
+  font-size: 1.2rem;
+}
+
+.info-block-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.info-block-list li {
+  display: flex;
+  gap: 12px;
+  font-size: 0.9rem;
+  color: var(--text-mid);
+}
+
+.info-block-list li .bullet {
+  font-size: 1.1rem;
+}
+
+.info-block-list li strong {
+  color: var(--text-dark);
+}
+
+/* Doctors Mini Cards */
+.doc-mini-entry {
+  background-color: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+}
+
+.doc-entry-avatar {
+  width: 42px;
+  height: 42px;
+  background-color: var(--primary-light);
+  color: var(--primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.doc-entry-avatar.avatar-blue {
+  background-color: rgba(79, 195, 247, 0.1);
+  color: var(--secondary-dark);
+}
+
+.doc-entry-details h5 {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.doc-entry-details p {
+  font-size: 0.78rem;
+  color: var(--text-light);
+  line-height: 1.4;
+  margin-top: 2px;
+}
+
+.react-disclaimer-box {
+  background-color: rgba(0, 0, 0, 0.02);
+  border-left: 3px solid var(--text-light);
+  padding: 14px;
+  border-radius: var(--radius-sm);
+  font-size: 0.82rem;
+  color: var(--text-light);
+  line-height: 1.5;
+  margin-top: auto;
+}

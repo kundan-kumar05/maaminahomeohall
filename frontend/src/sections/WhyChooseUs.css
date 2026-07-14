@@ -1,0 +1,96 @@
+.why-section {
+  background: var(--bg);
+  position: relative;
+  overflow: hidden;
+}
+
+.why-bg-decoration {
+  position: absolute;
+  top: -200px; right: -200px;
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(46,139,87,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.why-card {
+  background: white;
+  border-radius: 20px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+  border: 1px solid transparent;
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+  transition: var(--transition);
+}
+
+.why-card:hover {
+  border-color: color-mix(in srgb, var(--why-color) 20%, transparent);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+}
+
+.why-card-glow {
+  position: absolute;
+  bottom: -30px; right: -30px;
+  width: 100px; height: 100px;
+  border-radius: 50%;
+  background: var(--why-color);
+  opacity: 0.05;
+  transition: var(--transition);
+}
+
+.why-card:hover .why-card-glow {
+  opacity: 0.1;
+  transform: scale(1.5);
+}
+
+.why-icon {
+  width: 56px; height: 56px;
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--why-color) 12%, transparent);
+  color: var(--why-color);
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+  flex-shrink: 0;
+}
+
+.why-card:hover .why-icon {
+  background: var(--why-color);
+  color: white;
+  box-shadow: 0 6px 20px color-mix(in srgb, var(--why-color) 40%, transparent);
+  transform: rotate(-5deg) scale(1.05);
+}
+
+.why-card-content h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+}
+
+.why-card-content p {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  line-height: 1.65;
+}
+
+@media (max-width: 900px) {
+  .why-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 560px) {
+  .why-grid { grid-template-columns: 1fr; }
+}

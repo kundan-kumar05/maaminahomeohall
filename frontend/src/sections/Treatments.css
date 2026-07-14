@@ -1,0 +1,114 @@
+.treatments-section {
+  background: linear-gradient(180deg, var(--white) 0%, var(--bg) 100%);
+}
+
+.treatments-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.treatment-card {
+  background: white;
+  border-radius: 20px;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+  transition: var(--transition);
+  border: 1px solid transparent;
+  cursor: default;
+  position: relative;
+  overflow: hidden;
+}
+
+.treatment-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--t-color);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.treatment-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 36px rgba(0,0,0,0.1);
+  border-color: color-mix(in srgb, var(--t-color) 20%, transparent);
+}
+
+.treatment-card:hover::before { transform: scaleX(1); }
+
+/* Icon */
+.treatment-icon-wrap {
+  position: relative;
+  width: 56px; height: 56px;
+}
+
+.treatment-icon {
+  position: relative;
+  z-index: 2;
+  font-size: 2rem;
+  color: var(--t-color);
+  width: 56px; height: 56px;
+  padding: 12px;
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--t-color) 10%, transparent);
+  transition: var(--transition);
+}
+
+.treatment-card:hover .treatment-icon {
+  background: color-mix(in srgb, var(--t-color) 18%, transparent);
+  transform: scale(1.05);
+}
+
+.treatment-icon-glow {
+  position: absolute;
+  inset: -4px;
+  border-radius: 18px;
+  background: var(--t-color);
+  opacity: 0;
+  filter: blur(12px);
+  transition: var(--transition);
+}
+
+.treatment-card:hover .treatment-icon-glow { opacity: 0.15; }
+
+.treatment-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.treatment-desc {
+  font-size: 0.83rem;
+  color: var(--text-light);
+  line-height: 1.65;
+  flex: 1;
+}
+
+.treatment-tag {
+  margin-top: auto;
+}
+
+.treatment-tag span {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--t-color);
+  background: color-mix(in srgb, var(--t-color) 8%, transparent);
+  padding: 4px 10px;
+  border-radius: 100px;
+}
+
+@media (max-width: 900px) {
+  .treatments-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 560px) {
+  .treatments-grid { grid-template-columns: 1fr; }
+}
