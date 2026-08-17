@@ -15,9 +15,9 @@ const contactDetails = [
   {
     icon: FiPhone,
     label: 'Phone Number',
-    value: '+91 98765 43210',
+    value: '+91 9135363590',
     color: '#4FC3F7',
-    href: 'tel:+919876543210',
+    href: 'tel:+919135363590',
   },
   {
     icon: FiMail,
