@@ -71,9 +71,9 @@ const Footer = ({ onBookAppointment }) => {
                 <FiMapPin className="fc-icon" />
                 <span>Main Road, Darbhanga,<br />Bihar — 846004</span>
               </a>
-              <a href="tel:+919876543210" className="footer-contact-item">
+              <a href="tel:+919135363590" className="footer-contact-item">
                 <FiPhone className="fc-icon" />
-                <span>+91 98765 43210</span>
+                <span>+91 9135363590</span>
               </a>
               <a href="mailto:info@maaminahomeo.com" className="footer-contact-item">
                 <FiMail className="fc-icon" />

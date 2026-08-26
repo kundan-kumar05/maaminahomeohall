@@ -11,6 +11,7 @@ import ContactModal from './components/ContactModal';
 // Sections
 import Hero from './sections/Hero';
 import About from './sections/About';
+import ClinicVideos from './sections/ClinicVideos';
 import Doctors from './sections/Doctors';
 import Treatments from './sections/Treatments';
 import WhatsAppSection from './sections/WhatsAppSection';
@@ -52,6 +53,7 @@ function App() {
           <main>
             <Hero onBookAppointment={openModal} />
             <About />
+            <ClinicVideos />
             <Doctors />
             <Treatments />
             <WhatsAppSection />

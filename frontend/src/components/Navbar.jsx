@@ -72,8 +72,8 @@ const Navbar = ({ onBookAppointment }) => {
 
           {/* Desktop CTA */}
           <div className="navbar-cta">
-            <a href="tel:+919876543210" className="nav-phone">
-              <FiPhone /> +91 98765 43210
+            <a href="tel:+919135363590" className="nav-phone">
+              <FiPhone /> +91 9135363590
             </a>
             <button className="btn btn-primary navbar-book-btn" onClick={onBookAppointment}>
               Book Appointment
@@ -110,8 +110,8 @@ const Navbar = ({ onBookAppointment }) => {
           ))}
         </ul>
         <div className="drawer-footer">
-          <a href="tel:+919876543210" className="drawer-phone">
-            <FiPhone /> +91 98765 43210
+          <a href="tel:+917903550815" className="drawer-phone">
+            <FiPhone /> +91 9135363590
           </a>
           <button
             className="btn btn-primary"
