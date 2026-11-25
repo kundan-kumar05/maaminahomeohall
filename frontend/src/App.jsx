@@ -25,7 +25,7 @@ function App() {
   const [modalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 2200);
+    const timer = setTimeout(() => setLoading(false), 1000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -39,35 +39,31 @@ function App() {
           <motion.div
             key="loader"
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.4 }}
           >
             <LoadingScreen />
           </motion.div>
         )}
       </AnimatePresence>
 
-      {!loading && (
-        <>
-          <Navbar onBookAppointment={openModal} />
+      <Navbar onBookAppointment={openModal} />
 
-          <main>
-            <Hero onBookAppointment={openModal} />
-            <About />
-            <ClinicVideos />
-            <Doctors />
-            <Treatments />
-            <WhatsAppSection />
-            <WhyChooseUs />
-            <Testimonials />
-            <Contact onBookAppointment={openModal} />
-          </main>
+      <main>
+        <Hero onBookAppointment={openModal} />
+        <About />
+        <ClinicVideos />
+        <Doctors />
+        <Treatments />
+        <WhatsAppSection />
+        <WhyChooseUs />
+        <Testimonials />
+        <Contact onBookAppointment={openModal} />
+      </main>
 
-          <Footer onBookAppointment={openModal} />
-          <ScrollToTop />
-          <WhatsAppFloat />
-          <ContactModal isOpen={modalOpen} onClose={closeModal} />
-        </>
-      )}
+      <Footer onBookAppointment={openModal} />
+      <ScrollToTop />
+      <WhatsAppFloat />
+      <ContactModal isOpen={modalOpen} onClose={closeModal} />
     </>
   );
 }

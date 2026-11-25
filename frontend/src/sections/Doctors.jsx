@@ -2,6 +2,8 @@ import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { GiMedicalThermometer } from 'react-icons/gi';
 import { FiStar, FiMapPin, FiBookOpen } from 'react-icons/fi';
+import drBirjuImg from '../assets/dr-birju.svg';
+import drRadhaImg from '../assets/dr-radha.svg';
 import './Doctors.css';
 
 const doctors = [
@@ -14,6 +16,7 @@ const doctors = [
     experience: '15+ Years',
     patients: '3000+',
     initials: 'BK',
+    image: drBirjuImg,
     color: 'green',
     description:
       'Dr. Birju Kumar is an expert homeopathic physician specializing in neurological and musculoskeletal disorders. His deep understanding of constitutional remedies has helped thousands of patients regain mobility and health.',
@@ -27,6 +30,7 @@ const doctors = [
     experience: '12+ Years',
     patients: '2000+',
     initials: 'RK',
+    image: drRadhaImg,
     color: 'blue',
     description:
       'Dr. Radha Kumari specializes in women\'s health, pediatric care, and reproductive medicine. With her compassionate approach and extensive clinical experience, she has brought hope and healing to countless families.',
@@ -88,7 +92,14 @@ const Doctors = () => {
               {/* Card Header */}
               <div className="doctor-card-header">
                 <div className={`doctor-avatar-large ${doc.color}`}>
-                  {doc.initials}
+                  <img
+                    src={doc.image}
+                    alt={`${doc.name} (${doc.credentials}) — Maa Mina Homeo Hall`}
+                    width="96"
+                    height="96"
+                    loading="lazy"
+                    className="doctor-avatar-img"
+                  />
                 </div>
                 <div className="doctor-rating">
                   {[1,2,3,4,5].map(s => <FiStar key={s} className="star" />)}

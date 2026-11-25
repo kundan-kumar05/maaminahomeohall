@@ -15,7 +15,7 @@ const Footer = ({ onBookAppointment }) => {
           {/* Brand */}
           <div className="footer-brand">
             <div className="footer-logo">
-              <img src={logo} alt="Maa Mina Homeo Hall" className="footer-logo-img" />
+              <img src={logo} alt="Maa Mina Homeo Hall" className="footer-logo-img" loading="lazy" />
             </div>
             <p className="footer-tagline">
               Providing trusted, safe, and effective homeopathic healthcare to families
@@ -37,7 +37,7 @@ const Footer = ({ onBookAppointment }) => {
 
           {/* Quick Links */}
           <div className="footer-col">
-            <h4 className="footer-heading">Quick Links</h4>
+            <h2 className="footer-heading">Quick Links</h2>
             <ul className="footer-links">
               {quickLinks.map((l) => (
                 <li key={l}>
@@ -51,7 +51,7 @@ const Footer = ({ onBookAppointment }) => {
 
           {/* Treatments */}
           <div className="footer-col">
-            <h4 className="footer-heading">Treatments</h4>
+            <h2 className="footer-heading">Treatments</h2>
             <ul className="footer-links">
               {treatments.map((t) => (
                 <li key={t}>
@@ -65,9 +65,14 @@ const Footer = ({ onBookAppointment }) => {
 
           {/* Contact */}
           <div className="footer-col">
-            <h4 className="footer-heading">Contact Info</h4>
+            <h2 className="footer-heading">Contact Info</h2>
             <div className="footer-contact-list">
-              <a href="https://maps.google.com" className="footer-contact-item">
+              <a
+                href="https://maps.google.com/?q=Darbhanga,+Bihar+846004"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="footer-contact-item"
+              >
                 <FiMapPin className="fc-icon" />
                 <span>Main Road, Darbhanga,<br />Bihar — 846004</span>
               </a>

@@ -1,0 +1,16 @@
+{
+  "name": "Maa Mina Homeo Hall",
+  "short_name": "Maa Mina Homeo",
+  "description": "Trusted homeopathic clinic in Darbhanga, Bihar offering natural treatment for paralysis, skin diseases, arthritis, infant care, and chronic conditions.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1a3d2b",
+  "theme_color": "#2E8B57",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

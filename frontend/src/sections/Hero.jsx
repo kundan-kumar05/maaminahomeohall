@@ -1,8 +1,31 @@
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import { motion } from 'framer-motion';
 import { FiCalendar, FiMessageCircle } from 'react-icons/fi';
 import { GiLeafSwirl, GiHealing } from 'react-icons/gi';
+import drBirjuImg from '../assets/dr-birju.svg';
+import drRadhaImg from '../assets/dr-radha.svg';
 import './Hero.css';
+
+const heroDoctors = [
+  {
+    id: 'birju',
+    name: 'Dr. Birju Kumar',
+    cred: 'BHMS · Darbhanga',
+    exp: '15+ Yrs',
+    image: drBirjuImg,
+    tilt: -5,
+    variant: 'male',
+  },
+  {
+    id: 'radha',
+    name: 'Dr. Radha Kumari',
+    cred: 'BHMS · Jaipur',
+    exp: '12+ Yrs',
+    image: drRadhaImg,
+    tilt: 5,
+    variant: 'female',
+  },
+];
 
 const Hero = ({ onBookAppointment }) => {
   const particlesRef = useRef(null);
@@ -104,26 +127,57 @@ const Hero = ({ onBookAppointment }) => {
           transition={{ duration: 0.8, delay: 0.4 }}
         >
           <div className="hero-card-float">
-            <div className="hero-main-card">
-              <div className="hero-icon-ring">
-                <GiHealing />
+            {/* Tilted Dual Doctor Portraits */}
+            <div className="hero-doctors-showcase">
+              {heroDoctors.map((doc, idx) => (
+                <motion.a
+                  key={doc.id}
+                  href="#doctors"
+                  className={`hero-doc-card hero-doc-${doc.variant}`}
+                  initial={{ opacity: 0, y: 30, rotate: doc.tilt * 1.6 }}
+                  animate={{ opacity: 1, y: 0, rotate: doc.tilt }}
+                  whileHover={{ rotate: 0, y: -10, scale: 1.04 }}
+                  transition={{
+                    type: 'spring',
+                    stiffness: 220,
+                    damping: 18,
+                    delay: 0.45 + idx * 0.15,
+                  }}
+                >
+                  <div className="hero-doc-photo-wrap">
+                    <img
+                      src={doc.image}
+                      alt={`${doc.name} — ${doc.cred} Homeopathic Physician`}
+                      width="400"
+                      height="500"
+                      loading="eager"
+                      className="hero-doc-photo"
+                    />
+                    <span className="hero-doc-exp-badge">{doc.exp}</span>
+                  </div>
+                  <div className="hero-doc-caption">
+                    <p className="hero-doc-name">{doc.name}</p>
+                    <p className="hero-doc-cred">{doc.cred}</p>
+                  </div>
+                </motion.a>
+              ))}
+            </div>
+
+            {/* Clinic Summary Bar */}
+            <div className="hero-clinic-bar">
+              <div className="hero-clinic-bar-head">
+                <div className="hero-icon-ring">
+                  <GiHealing />
+                </div>
+                <div>
+                  <h3>Maa Mina Homeo Hall</h3>
+                  <p>Expert Homeopathic Treatment</p>
+                </div>
               </div>
-              <h3>Maa Mina Homeo Hall</h3>
-              <p>Expert Homeopathic Treatment</p>
               <div className="hero-card-tags">
                 {['Paralysis', 'Skin Care', 'Arthritis', 'Infertility'].map(tag => (
                   <span key={tag} className="hero-tag">{tag}</span>
                 ))}
-              </div>
-              <div className="hero-card-doctors">
-                <div className="doctor-avatars">
-                  <div className="d-avatar bk">BK</div>
-                  <div className="d-avatar rk">RK</div>
-                </div>
-                <div>
-                  <p className="d-names">Dr. Birju Kumar & Dr. Radha Kumari</p>
-                  <p className="d-cred">BHMS Certified Homeopaths</p>
-                </div>
               </div>
             </div>
 

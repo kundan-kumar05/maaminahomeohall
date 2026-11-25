@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500" role="img" aria-label="Dr. Birju Kumar">
+  <defs>
+    <linearGradient id="bg-birju" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e3f3ea"/>
+      <stop offset="55%" stop-color="#c6e7d4"/>
+      <stop offset="100%" stop-color="#9ad3b3"/>
+    </linearGradient>
+    <radialGradient id="glow-birju" cx="50%" cy="35%" r="55%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.75"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="skin-birju" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#d89d76"/>
+      <stop offset="100%" stop-color="#be7f58"/>
+    </linearGradient>
+    <linearGradient id="coat-birju" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#e9eff2"/>
+    </linearGradient>
+    <linearGradient id="shirt-birju" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2e8b57"/>
+      <stop offset="100%" stop-color="#1b5e3a"/>
+    </linearGradient>
+    <linearGradient id="hair-birju" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2b2628"/>
+      <stop offset="100%" stop-color="#171416"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Studio Background -->
+  <rect width="400" height="500" fill="url(#bg-birju)"/>
+  <circle cx="200" cy="185" r="170" fill="url(#glow-birju)"/>
+  <circle cx="65" cy="95" r="46" fill="#ffffff" fill-opacity="0.22"/>
+  <circle cx="345" cy="145" r="32" fill="#2e8b57" fill-opacity="0.1"/>
+  <circle cx="320" cy="70" r="18" fill="#ffffff" fill-opacity="0.3"/>
+
+  <!-- Subtle Medical Cross Watermark -->
+  <g opacity="0.1" fill="#1e6b42">
+    <rect x="46" y="42" width="10" height="32" rx="3"/>
+    <rect x="35" y="53" width="32" height="10" rx="3"/>
+  </g>
+
+  <!-- Shoulders & Shirt Base -->
+  <path d="M52 500 C56 392 104 340 164 328 L236 328 C296 340 344 392 348 500 Z" fill="url(#shirt-birju)"/>
+
+  <!-- Neck & Collar Shadow -->
+  <path d="M167 272 L167 346 C167 368 233 368 233 346 L233 272 Z" fill="#b47550"/>
+  <ellipse cx="200" cy="278" rx="33" ry="14" fill="#9d5f3c" opacity="0.45"/>
+
+  <!-- Dress Shirt Collar & Tie -->
+  <polygon points="164,328 200,378 178,386 152,340" fill="#eef6f1"/>
+  <polygon points="236,328 200,378 222,386 248,340" fill="#eef6f1"/>
+  <polygon points="191,372 209,372 213,500 187,500" fill="#184e32"/>
+  <polygon points="190,364 210,364 205,378 195,378" fill="#144029"/>
+
+  <!-- White Doctor Lab Coat -->
+  <path d="M50 500 C54 388 100 338 158 326 L186 426 L186 500 Z" fill="url(#coat-birju)"/>
+  <path d="M350 500 C346 388 300 338 242 326 L214 426 L214 500 Z" fill="url(#coat-birju)"/>
+  <!-- Coat Lapels -->
+  <polygon points="158,326 188,434 156,418 140,362" fill="#f7fafc" stroke="#d5e0e5" stroke-width="1.5"/>
+  <polygon points="242,326 212,434 244,418 260,362" fill="#f7fafc" stroke="#d5e0e5" stroke-width="1.5"/>
+  <!-- Coat Pocket & Pen -->
+  <rect x="248" y="424" width="48" height="58" rx="6" fill="#f3f7f9" stroke="#d5e0e5" stroke-width="1.5"/>
+  <rect x="261" y="405" width="5" height="22" rx="2" fill="#2e8b57"/>
+  <rect x="261" y="403" width="5" height="6" rx="1.5" fill="#ffd54f"/>
+  <!-- Nameplate Badge -->
+  <rect x="108" y="410" width="52" height="26" rx="5" fill="#ffffff" stroke="#c5d9cf" stroke-width="1.5"/>
+  <rect x="114" y="416" width="12" height="14" rx="2" fill="#2e8b57"/>
+  <line x1="131" y1="419" x2="154" y2="419" stroke="#2e8b57" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="131" y1="426" x2="148" y2="426" stroke="#7a8fa6" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Stethoscope -->
+  <path d="M148 332 C132 372 132 418 166 436 C192 450 226 446 248 424 C264 406 266 364 252 332" fill="none" stroke="#22303c" stroke-width="9" stroke-linecap="round"/>
+  <path d="M148 332 C132 372 132 418 166 436 C192 450 226 446 248 424 C264 406 266 364 252 332" fill="none" stroke="#3c4f5e" stroke-width="3.5" stroke-linecap="round"/>
+  <circle cx="164" cy="436" r="14" fill="#cfd8dc" stroke="#546e7a" stroke-width="2.5"/>
+  <circle cx="164" cy="436" r="7" fill="#455a64"/>
+
+  <!-- Ears -->
+  <ellipse cx="131" cy="204" rx="11" ry="19" fill="#c2835c"/>
+  <ellipse cx="269" cy="204" rx="11" ry="19" fill="#c2835c"/>
+
+  <!-- Head / Face -->
+  <path d="M134 176 C134 114 266 114 266 176 C266 238 242 284 200 288 C158 284 134 238 134 176 Z" fill="url(#skin-birju)"/>
+
+  <!-- Hair (Neat parted male hair) -->
+  <path d="M130 182 C125 128 152 90 202 90 C252 90 274 128 270 182 C264 150 250 132 232 126 C210 120 176 130 156 142 C142 150 136 164 130 182 Z" fill="url(#hair-birju)"/>
+  <path d="M160 112 C188 102 224 106 246 122" fill="none" stroke="#474144" stroke-width="3" stroke-linecap="round" opacity="0.5"/>
+
+  <!-- Eyebrows -->
+  <path d="M153 173 Q170 165 186 171" fill="none" stroke="#221c1d" stroke-width="4.5" stroke-linecap="round"/>
+  <path d="M214 171 Q230 165 247 173" fill="none" stroke="#221c1d" stroke-width="4.5" stroke-linecap="round"/>
+
+  <!-- Eyes -->
+  <ellipse cx="171" cy="189" rx="10" ry="6.5" fill="#ffffff"/>
+  <circle cx="172" cy="189" r="5" fill="#231917"/>
+  <circle cx="174" cy="187" r="1.6" fill="#ffffff"/>
+  <ellipse cx="229" cy="189" rx="10" ry="6.5" fill="#ffffff"/>
+  <circle cx="228" cy="189" r="5" fill="#231917"/>
+  <circle cx="230" cy="187" r="1.6" fill="#ffffff"/>
+
+  <!-- Subtle Glasses Frame -->
+  <rect x="150" y="177" width="42" height="25" rx="8" fill="none" stroke="#2c3e50" stroke-width="2.4" opacity="0.85"/>
+  <rect x="208" y="177" width="42" height="25" rx="8" fill="none" stroke="#2c3e50" stroke-width="2.4" opacity="0.85"/>
+  <line x1="192" y1="188" x2="208" y2="188" stroke="#2c3e50" stroke-width="2.4" opacity="0.85"/>
+
+  <!-- Nose -->
+  <path d="M200 188 L195 218 Q200 224 207 219" fill="none" stroke="#a66946" stroke-width="2.6" stroke-linecap="round"/>
+
+  <!-- Trimmed Mustache & Warm Smile -->
+  <path d="M177 234 Q200 227 223 234" fill="none" stroke="#262022" stroke-width="5" stroke-linecap="round"/>
+  <path d="M178 242 Q200 258 222 242" fill="#ffffff" stroke="#8e4e38" stroke-width="2" stroke-linecap="round"/>
+  <path d="M192 263 Q200 266 208 263" fill="none" stroke="#9e6240" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+</svg>

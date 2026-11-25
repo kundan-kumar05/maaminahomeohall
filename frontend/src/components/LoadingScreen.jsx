@@ -21,14 +21,14 @@ const LoadingScreen = () => (
         <div className="loading-pulse-ring" />
         <div className="loading-pulse-ring delay" />
       </div>
-      <motion.h2
+      <motion.p
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3 }}
         className="loading-title"
       >
         Maa Mina Homeo Hall
-      </motion.h2>
+      </motion.p>
       <p className="loading-subtitle">Natural Healing for a Healthier Life</p>
       <div className="loading-dots">
         {[0, 1, 2].map((i) => (

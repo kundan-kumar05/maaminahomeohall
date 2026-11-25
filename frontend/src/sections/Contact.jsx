@@ -10,7 +10,7 @@ const contactDetails = [
     label: 'Our Location',
     value: 'Maa Mina Homeo Hall, Main Road, Darbhanga, Bihar — 846004',
     color: '#2E8B57',
-    href: 'https://maps.google.com',
+    href: 'https://maps.google.com/?q=Darbhanga,+Bihar+846004',
   },
   {
     icon: FiPhone,
@@ -90,7 +90,13 @@ const Contact = ({ onBookAppointment }) => {
                   <div className="c-content">
                     <p className="c-label">{d.label}</p>
                     {d.href ? (
-                      <a href={d.href} className="c-value link">
+                      <a
+                        href={d.href}
+                        className="c-value link"
+                        {...(d.href.startsWith('http')
+                          ? { target: '_blank', rel: 'noopener noreferrer' }
+                          : {})}
+                      >
                         {d.value}
                       </a>
                     ) : (

@@ -48,7 +48,7 @@ const Navbar = ({ onBookAppointment }) => {
 
   return (
     <>
-      <nav className={`navbar ${scrolled ? 'scrolled' : ''}`} ref={menuRef}>
+      <nav className={`navbar ${scrolled ? 'scrolled' : ''}`} ref={menuRef} aria-label="Main navigation">
         <div className="container navbar-inner">
           {/* Logo */}
           <a href="#home" className="navbar-logo" onClick={() => handleLinkClick('#home')}>
@@ -110,7 +110,7 @@ const Navbar = ({ onBookAppointment }) => {
           ))}
         </ul>
         <div className="drawer-footer">
-          <a href="tel:+917903550815" className="drawer-phone">
+          <a href="tel:+919135363590" className="drawer-phone">
             <FiPhone /> +91 9135363590
           </a>
           <button

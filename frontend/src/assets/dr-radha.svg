@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500" role="img" aria-label="Dr. Radha Kumari">
+  <defs>
+    <linearGradient id="bg-radha" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e0f4fc"/>
+      <stop offset="55%" stop-color="#c3e9f8"/>
+      <stop offset="100%" stop-color="#96d7f2"/>
+    </linearGradient>
+    <radialGradient id="glow-radha" cx="50%" cy="35%" r="55%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.78"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="skin-radha" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e3ad87"/>
+      <stop offset="100%" stop-color="#cb8d66"/>
+    </linearGradient>
+    <linearGradient id="coat-radha" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#eaf1f6"/>
+    </linearGradient>
+    <linearGradient id="top-radha" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0288d1"/>
+      <stop offset="100%" stop-color="#01579b"/>
+    </linearGradient>
+    <linearGradient id="hair-radha" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#241e21"/>
+      <stop offset="100%" stop-color="#130f12"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Studio Background -->
+  <rect width="400" height="500" fill="url(#bg-radha)"/>
+  <circle cx="200" cy="185" r="170" fill="url(#glow-radha)"/>
+  <circle cx="335" cy="92" r="44" fill="#ffffff" fill-opacity="0.25"/>
+  <circle cx="58" cy="145" r="30" fill="#0288d1" fill-opacity="0.1"/>
+  <circle cx="80" cy="68" r="16" fill="#ffffff" fill-opacity="0.32"/>
+
+  <!-- Subtle Medical Cross Watermark -->
+  <g opacity="0.1" fill="#0277bd">
+    <rect x="342" y="42" width="10" height="32" rx="3"/>
+    <rect x="331" y="53" width="32" height="10" rx="3"/>
+  </g>
+
+  <!-- Back Hair Volume -->
+  <path d="M118 190 C106 250 112 325 138 355 L262 355 C288 325 294 250 282 190 Z" fill="url(#hair-radha)"/>
+
+  <!-- Shoulders & Teal Top -->
+  <path d="M58 500 C62 396 108 344 166 332 L234 332 C292 344 338 396 342 500 Z" fill="url(#top-radha)"/>
+
+  <!-- Neck -->
+  <path d="M171 272 L171 344 C171 366 229 366 229 344 L229 272 Z" fill="#c1845d"/>
+  <ellipse cx="200" cy="278" rx="30" ry="13" fill="#a86a46" opacity="0.4"/>
+
+  <!-- White Doctor Lab Coat -->
+  <path d="M54 500 C58 392 104 342 162 330 L192 435 L192 500 Z" fill="url(#coat-radha)"/>
+  <path d="M346 500 C342 392 296 342 238 330 L208 435 L208 500 Z" fill="url(#coat-radha)"/>
+  <!-- Coat Lapels -->
+  <polygon points="162,330 192,438 158,422 142,366" fill="#f7fbfd" stroke="#d3e2ea" stroke-width="1.5"/>
+  <polygon points="238,330 208,438 242,422 258,366" fill="#f7fbfd" stroke="#d3e2ea" stroke-width="1.5"/>
+  <!-- Coat Pocket -->
+  <rect x="106" y="424" width="46" height="56" rx="6" fill="#f3f8fb" stroke="#d3e2ea" stroke-width="1.5"/>
+  <rect x="135" y="406" width="5" height="20" rx="2" fill="#0288d1"/>
+  <!-- Nameplate Badge -->
+  <rect x="242" y="410" width="52" height="26" rx="5" fill="#ffffff" stroke="#c3dceb" stroke-width="1.5"/>
+  <rect x="248" y="416" width="12" height="14" rx="2" fill="#0288d1"/>
+  <line x1="265" y1="419" x2="288" y2="419" stroke="#0288d1" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="265" y1="426" x2="282" y2="426" stroke="#7a8fa6" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Stethoscope -->
+  <path d="M150 336 C134 374 136 420 168 438 C194 452 226 446 246 424 C262 406 264 366 250 336" fill="none" stroke="#1e2d3a" stroke-width="9" stroke-linecap="round"/>
+  <path d="M150 336 C134 374 136 420 168 438 C194 452 226 446 246 424 C262 406 264 366 250 336" fill="none" stroke="#3b5163" stroke-width="3.5" stroke-linecap="round"/>
+  <circle cx="236" cy="434" r="14" fill="#cfd8dc" stroke="#546e7a" stroke-width="2.5"/>
+  <circle cx="236" cy="434" r="7" fill="#455a64"/>
+
+  <!-- Ears & Stud Earrings -->
+  <ellipse cx="135" cy="204" rx="10" ry="17" fill="#cb8d66"/>
+  <ellipse cx="265" cy="204" rx="10" ry="17" fill="#cb8d66"/>
+  <circle cx="134" cy="218" r="4" fill="#ffd54f" stroke="#d49f1a" stroke-width="1"/>
+  <circle cx="266" cy="218" r="4" fill="#ffd54f" stroke="#d49f1a" stroke-width="1"/>
+
+  <!-- Head / Face -->
+  <path d="M138 178 C138 118 262 118 262 178 C262 238 238 282 200 286 C162 282 138 238 138 178 Z" fill="url(#skin-radha)"/>
+
+  <!-- Front Hair (Soft center/side sweep) -->
+  <path d="M132 192 C130 126 158 92 200 92 C242 92 270 126 268 192 C262 154 242 130 212 126 C188 134 156 144 132 192 Z" fill="url(#hair-radha)"/>
+  <path d="M154 114 C178 102 216 102 242 118" fill="none" stroke="#473c41" stroke-width="3" stroke-linecap="round" opacity="0.45"/>
+
+  <!-- Bindi -->
+  <circle cx="200" cy="162" r="3.4" fill="#b71c1c"/>
+
+  <!-- Eyebrows -->
+  <path d="M156 172 Q171 164 186 170" fill="none" stroke="#221c1d" stroke-width="3.6" stroke-linecap="round"/>
+  <path d="M214 170 Q229 164 244 172" fill="none" stroke="#221c1d" stroke-width="3.6" stroke-linecap="round"/>
+
+  <!-- Eyes -->
+  <ellipse cx="172" cy="188" rx="10" ry="6.5" fill="#ffffff"/>
+  <circle cx="173" cy="188" r="5" fill="#231917"/>
+  <circle cx="175" cy="186" r="1.6" fill="#ffffff"/>
+  <path d="M161 186 Q172 179 183 185" fill="none" stroke="#1e1718" stroke-width="2" stroke-linecap="round"/>
+
+  <ellipse cx="228" cy="188" rx="10" ry="6.5" fill="#ffffff"/>
+  <circle cx="227" cy="188" r="5" fill="#231917"/>
+  <circle cx="229" cy="186" r="1.6" fill="#ffffff"/>
+  <path d="M217 185 Q228 179 239 186" fill="none" stroke="#1e1718" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Soft Cheek Blush -->
+  <ellipse cx="158" cy="212" rx="12" ry="7" fill="#e57373" opacity="0.22"/>
+  <ellipse cx="242" cy="212" rx="12" ry="7" fill="#e57373" opacity="0.22"/>
+
+  <!-- Nose -->
+  <path d="M200 188 L196 215 Q200 221 206 216" fill="none" stroke="#b0734f" stroke-width="2.2" stroke-linecap="round"/>
+
+  <!-- Warm Smile -->
+  <path d="M179 236 Q200 254 221 236" fill="#ffffff" stroke="#b54b4b" stroke-width="2.4" stroke-linecap="round"/>
+  <path d="M180 236 Q200 242 220 236" fill="none" stroke="#b54b4b" stroke-width="1.8" stroke-linecap="round"/>
+</svg>
